@@ -43,24 +43,24 @@ void init(Agraph_t * g)
 vector<bool> visited;
 stack<int> node_stack;
 
-void topo_sort_core(int i)
+void toposort_core(int i)
 {
 	visited[i] = true;
 	
 	for(int x : graph[i])
 		if (!visited[x])
-			topo_sort_core(x);
+			toposort_core(x);
 
 	node_stack.push(i);
 }
 
-void topo_sort()
+void toposort()
 {
 	visited = vector<bool> (graph.size(), false);
 
 	for(int i = 0; i < graph.size(); i++)
 		if (!visited[i])
-			topo_sort_core(i);
+			toposort_core(i);
 
 	while(!node_stack.empty()) {
 		cout << toname[node_stack.top()] << ' ';
@@ -78,7 +78,7 @@ int main()
 
 	init(g);
 
-	topo_sort();
+	toposort();
 
 	agclose(g);
 
