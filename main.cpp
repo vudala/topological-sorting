@@ -76,8 +76,8 @@ void findCycle() {
 		for(int v : graph[i]){
 			// (u, v), u.pos < v.pos = return arc -> has cycle -> not a DAG
 			if(graph_t[u] < graph_t[v]){
-				cerr << "err: cycle found: " << toname[u] << " -> " << toname[v] << endl;
-				cerr << "err: not a DAG" << endl;
+				cout << "err: cycle found: " << toname[u] << " -> " << toname[v] << endl;
+				cout << "err: not a DAG" << endl;
 				exit(1);
 			}
 		}
@@ -94,12 +94,12 @@ void printTopoSort()
 
 void checkInput(Agraph_t * g) {
 	if(!g){
-		cerr << "err: error reading graph. Invalid structure." << endl;
+		cout << "err: error reading graph. Invalid structure." << endl;
 		exit(1);
 	}
 
 	if(!agisdirected(g)) {
-		cerr << "err: not a digraph" << endl;
+		cout << "err: not a digraph" << endl;
 		exit(1);
 	}
 }
