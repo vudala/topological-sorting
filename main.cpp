@@ -114,6 +114,8 @@ int main()
 	graph = vector<vector<int>>(0);
 
 	init(g);
+	agclose(g);
+
 	graph_t = vector<int>(graph.size());
 
 	toposort();
@@ -121,8 +123,6 @@ int main()
 	findCycle();
 
 	printTopoSort();
-
-	agclose(g);
 
 	return 0;
 }
